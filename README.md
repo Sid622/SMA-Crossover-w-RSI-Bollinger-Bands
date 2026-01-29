@@ -1,5 +1,8 @@
 # SMA-Crossover-w-RSI-Bollinger-Bands
-This project implements a strategy that combines three indicators: SMA Crossover, Bollinger Bands, and RSI to identify optimal buying opportunities in equity markets.
+This project combines technical indicators to identify entry and exit points in the SPY (S&P 500 ETF). This strategy uses a simple moving average, Bollinger Bands, and RSI with ATR for risk management. 
+
+Main Idea: Prices following a mean reverting pattern when they become oversold during a bull market. By following multiple technical indicators, we can identify accurate risk-reward opportunities. 
+
 Technical Indicators
 1. Simple Moving Average (SMA) Crossover
    Measures: Trend direction and strength
@@ -33,7 +36,30 @@ Technical Indicators
    Zones:
    RSI > 70 = Overbought
    RSI 30-70 = Normal
-   RSI < 30: Oversold
+   RSI < 40: Oversold
    Current Threshold: RSI < 40 (Moderately oversold)
-   Extreme momentum in one direction will not last forever, leading to mean reversion. RSI quantifies this exhuastion. 
+   Extreme momentum in one direction will not last forever, leading to mean reversion. RSI quantifies this exhuastion.
+
+Entry Conditions:
+
+1. Trend Filter (SMA Crossover): 50-day SMA > 200-day SMA (Golden Cross)
+2. Mean Reversion (Bollinger Bands): Price <= Lower Bollinger Band
+3. Momentum (RSI): RSI < 40 (Oversold)
+
+Exit Conditions:
+
+1. Profit Target: RSI > 65 (overbought)
+2. Stop Loss: Price falls 2x ATR below entry price
+3. Time Stop: Position held for 30 days
+
+Equity Curve
+   
+   <img width="760" height="606" alt="image" src="https://github.com/user-attachments/assets/d833bf7f-6fb5-4ebd-aaeb-beea65696aa7" />
+
+The equity curve is a visual plot that shows cumulative profit/loss over time. This strategy has proven to work as it has gone significantly higher than the break-even line. With a 62% win rate and a 1.29% average return per trade, the strategy shows some gains. Cumulative returns are normalized to starting capital of 1.0.
+
+Limitations:
+
+May underperform in strong bull markets where prices don't fall to the lower Bollinger Band, resulting in miss trades. The Golden Cross avoids bear market trades, however this could cause the strategy to sit idle and miss certain opportunities. 
+
    
