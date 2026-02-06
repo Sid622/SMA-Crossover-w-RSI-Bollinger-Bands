@@ -62,4 +62,9 @@ Limitations:
 
 May underperform in strong bull markets where prices don't fall to the lower Bollinger Band, resulting in miss trades. The Golden Cross avoids bear market trades, however this could cause the strategy to sit idle and miss certain opportunities. 
 
-   
+Getting Started
+
+Clone the repository
+Run the script to fetch live data from yfinance
+Adjust parameters for technical indicators as needed
+Analyze equity returns graph to evalulate strategy viability
